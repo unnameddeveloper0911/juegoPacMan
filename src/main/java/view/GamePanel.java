@@ -41,7 +41,7 @@ public class GamePanel extends JPanel {
     /**
      * El controlador inyecta los modelos aquí para que la vista los pinte.
      */
-    public void asignarModelos(Map mapa, PacMan pacman, Ghost[] fantasmas) {
+    public void asignModels(Map mapa, PacMan pacman, Ghost[] fantasmas) {
         this.mapa = mapa;
         this.pacman = pacman;
         this.ghosts = fantasmas;
@@ -62,15 +62,15 @@ public class GamePanel extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         if (gameStatus.equals("inicio")) {
-            dibujarPantallaInicio(g2d);
+            drawInstructions(g2d);
         } else if (gameStatus.equals("jugando")) {
-            dibujarJuego(g2d);
+            drawGame(g2d);
         } else if (gameStatus.equals("gameover")) {
-            dibujarGameOver(g2d);
+            drawGameOver(g2d);
         }
     }
 
-    private void dibujarPantallaInicio(Graphics2D g2d) {
+    private void drawInstructions(Graphics2D g2d) {
         g2d.setColor(Color.YELLOW);
         g2d.setFont(new Font("Verdana", Font.BOLD, 60));
         g2d.drawString("PAC-MAN", 160, 200);
@@ -87,15 +87,15 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void dibujarJuego(Graphics2D g2d) {
+    private void drawGame(Graphics2D g2d) {
         if (mapa == null || pacman == null) return;
-        dibujarTablero(g2d);
-        dibujarPacman(g2d);
-        dibujarFantasmas(g2d);
-        dibujarHUD(g2d);
+        drawGameboard(g2d);
+        drawPacMan(g2d);
+        drawGhosts(g2d);
+        drawHud(g2d);
     }
 
-    private void dibujarTablero(Graphics2D g2d) {
+    private void drawGameboard(Graphics2D g2d) {
         ObjectGame[][] objs = mapa.getObjects();
         for (int fila = 0; fila < objs.length; fila++) {
             for (int col = 0; col < objs[fila].length; col++) {
@@ -107,13 +107,14 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void dibujarPacman(Graphics2D g2d) {
+
+    private void drawPacMan(Graphics2D g2d) {
         if (pacman.isActive()) {
             g2d.drawImage(pacman.getSprite(), pacman.getX(), pacman.getY(), this);
         }
     }
 
-    private void dibujarFantasmas(Graphics2D g2d) {
+    private void drawGhosts(Graphics2D g2d) {
         if (ghosts == null) return;
         for (int i = 0; i < ghosts.length; i++) {
             Ghost f = ghosts[i];
@@ -123,7 +124,7 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void dibujarHUD(Graphics2D g2d) {
+    private void drawHud(Graphics2D g2d) {
         int hudX = 514; // justo después del tablero (21 cols × 24 px = 504 px)
 
         g2d.setColor(Color.BLUE);
@@ -155,7 +156,7 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void dibujarGameOver(Graphics2D g2d) {
+    private void drawGameOver(Graphics2D g2d) {
         g2d.setColor(Color.WHITE);
         g2d.setFont(new Font("Verdana", Font.BOLD, 60));
         g2d.drawString("Game Over", 130, 220);
