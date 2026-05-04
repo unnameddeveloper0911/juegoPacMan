@@ -142,17 +142,17 @@ public class PacMan extends Entity{
      * Se llama cada ciertos frames para que la boca "masque".
      */
     public void actualizarSprite(int d) {
-        String archivo;
+        String archive;
         if (openMouth) {
-            archivo = "pacman_closed.png";
+            archive = "pacman_closed.png";
         } else {
-            if (d == DIR_LEFT) archivo = "pacman_left.png";
-            else if (d == DIR_RIGHT) archivo = "pacman_right.png";
-            else if (d == DIR_UP) archivo = "pacman_up.png";
-            else if (d == DIR_DOWN) archivo = "pacman_down.png";
-            else archivo = "pacman_left.png";
+            if (d == DIR_LEFT) archive = "pacman_left.png";
+            else if (d == DIR_RIGHT) archive = "pacman_right.png";
+            else if (d == DIR_UP) archive = "pacman_up.png";
+            else if (d == DIR_DOWN) archive = "pacman_down.png";
+            else archive = "pacman_left.png";
         }
-        setSprite(uploadImage(archivo));
+        setSprite(uploadImage(archive));
         openMouth = !openMouth;
     }
 
