@@ -31,11 +31,11 @@ package model;
          */
         @Override
         public void changeDirection(int posPacX, int posPacY) {
-            int d = getDirection();
-            if (d == DIR_LEFT || d == DIR_RIGHT) {
+            int direction = getDirection();
+            if (direction == DIR_LEFT || direction == DIR_RIGHT) {
                 if (posPacY < getY()) setDirection(DIR_UP);
                 else if (posPacY > getY()) setDirection(DIR_DOWN);
-            } else if (d == DIR_UP || d == DIR_DOWN) {
+            } else if (direction == DIR_UP || direction == DIR_DOWN) {
                 if (posPacX < getX()) setDirection(DIR_LEFT);
                 else if (posPacX > getX()) setDirection(DIR_RIGHT);
             }

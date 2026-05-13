@@ -41,7 +41,7 @@ public class GamePanel extends JPanel {
     /**
      * El controlador inyecta los modelos aquí para que la vista los pinte.
      */
-    public void asignModels(Map mapa, PacMan pacman, Ghost[] fantasmas) {
+    public void assignModel(Map mapa, PacMan pacman, Ghost[] fantasmas) {
         this.mapa = mapa;
         this.pacman = pacman;
         this.ghosts = fantasmas;

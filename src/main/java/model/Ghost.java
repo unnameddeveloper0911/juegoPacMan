@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 public abstract class Ghost extends Entity {
 
     //constante tiempo de estado comestible
-    //540= 9s * 60fps
+    //540= 9 s * 60 fps
     private static final int DURATION_EATABLE=540;
 
     private int speed; //velocidad

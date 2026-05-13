@@ -6,7 +6,7 @@ public class PacMan extends Entity{
 
     //Constantes para darle la posición inicial a PacMan
     private static final int X_INITIAL=240;
-    private static final int Y_INITIAL=240;
+    private static final int Y_INITIAL=432;
     private static final int SPEED=1;
     private static final int INITIAL_LIVES=3;
 
@@ -126,14 +126,14 @@ public class PacMan extends Entity{
     /**
      * Suma puntos a la puntuación acumulada.
      */
-    public void sumarPuntos(int puntos) {
+    public void addPoints(int puntos) {
         this.score += puntos;
     }
 
     /**
      * Descuenta una vida.
      */
-    public void perderVida() {
+    public void lossLife() {
         if (lives > 0) lives--;
     }
 
@@ -141,7 +141,7 @@ public class PacMan extends Entity{
      * Actualiza el sprite según la dirección y alterna la animación de boca.
      * Se llama cada ciertos frames para que la boca "masque".
      */
-    public void actualizarSprite(int d) {
+    public void updateSprite(int d) {
         String archive;
         if (openMouth) {
             archive = "pacman_closed.png";
@@ -159,7 +159,7 @@ public class PacMan extends Entity{
     /**
      * Activa o desactiva la pausa.
      */
-    public void alternarPausa() {
+    public void updatePaused() {
         paused = !paused;
     }
 

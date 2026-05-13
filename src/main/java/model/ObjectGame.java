@@ -23,7 +23,7 @@ public class ObjectGame extends Entity {
      * Constructor para celdas vacías (sin sprite ni colisión).
      */
     public ObjectGame() {
-        super(0, 0, null);
+        super(null, 0, 0);
         this.type = EMPTY;
         setActive(false);
     }
@@ -32,7 +32,7 @@ public class ObjectGame extends Entity {
      * Constructor para objetos con posición, sprite y tipo.
      */
     public ObjectGame(int x, int y, BufferedImage sprite, int type) {
-        super(x, y, sprite);
+        super(sprite,x, y );
         this.type = type;
     }
 

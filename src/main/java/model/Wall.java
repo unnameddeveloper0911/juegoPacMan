@@ -1,17 +1,15 @@
 package model;
 
 /**
- * Clase principal the PacMan, getsiona su movimiento
+ * Clase principal the PacMan, gestiona su movimiento
  * <p>
  * "Look, it's PAcMAAAN. Waka Waka" -Unknow
  */
 
 public class Wall extends ObjectGame{
 
-
-
     public Wall(int x, int y){
-        super(x,y,uploadImage("Wall.png"),SUPER_POINT);
+        super(x,y,uploadImage("Wall.png"),WALL);
     }
 
 }
